@@ -38,3 +38,10 @@ adf.test(count_d1, alternative = "stationary")
 
 Acf(count_d1, main='ACF for Differenced Series')
 Pacf(count_d1, main='PACF for Differenced Series')
+
+fit<-auto.arima(deseasonal_cnt, seasonal=FALSE)
+tsdisplay(residuals(fit), lag.max=45, main='(1,1,1) Model Residuals')
+
+fit2 = arima(deseasonal_cnt, order=c(1,1,7))
+fit2
+tsdisplay(residuals(fit2), lag.max=15, main='Seasonal Model Residuals')
